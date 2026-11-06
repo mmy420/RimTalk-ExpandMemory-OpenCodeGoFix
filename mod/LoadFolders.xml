@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 三个版本共用同一个 net48 程序集 -->
+<loadFolders>
+	<v1.5>
+		<li>/</li>
+		<li>Common</li>
+	</v1.5>
+	<v1.6>
+		<li>/</li>
+		<li>Common</li>
+	</v1.6>
+	<v1.7>
+		<li>/</li>
+		<li>Common</li>
+	</v1.7>
+</loadFolders>

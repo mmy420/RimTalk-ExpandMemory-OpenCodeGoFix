@@ -1,0 +1,5 @@
+bin/
+obj/
+Tests/.out/
+dist/
+.DS_Store

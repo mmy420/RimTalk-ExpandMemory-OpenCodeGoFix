@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- 记忆拓展的发布版是 x64 程序集，测试必须跑在 x64 运行时上（Apple Silicon 用 Rosetta） -->
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- 真 Harmony（运行时实现），与记忆拓展/本补丁引用的 0Harmony 2.4.3.0 同版本 -->
+    <PackageReference Include="Lib.Harmony" Version="2.4.3" />
+    <ProjectReference Include="../FakeVerse/FakeVerse.csproj" />
+    <ProjectReference Include="../FakeRimTalk/FakeRimTalk.csproj" />
+  </ItemGroup>
+</Project>

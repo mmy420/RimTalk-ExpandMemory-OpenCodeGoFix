@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- 测试替身：冒充 RimTalk 本体（程序集名 RimTalk），独立编写，只复现记忆拓展与本补丁会读到的公开成员 -->
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>RimTalk</AssemblyName>
+    <RootNamespace>RimTalk</RootNamespace>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+  </PropertyGroup>
+</Project>

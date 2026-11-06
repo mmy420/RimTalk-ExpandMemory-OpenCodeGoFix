@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- 1.5 / 1.6 跑在 Mono（.NET Framework 4.8 配置）；1.7 的运行时同样加载 net48 程序集（RimTalk 本体在 1.7 下就是用它的 1.6/net48 版本） -->
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>RTEM.OpenCodeGoFix</AssemblyName>
+    <RootNamespace>RTEM.OpenCodeGoFix</RootNamespace>
+    <Version>1.0.0</Version>
+
+    <DebugType>none</DebugType>
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+
+    <!-- 直接输出到 mod 目录；不拷贝任何依赖（游戏与 Harmony mod 在运行时提供） -->
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <OutputPath>$(MSBuildThisFileDirectory)../mod/Common/Assemblies/</OutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- 仅编译期引用；ExcludeAssets=runtime 保证不会把它们打进 mod 目录 -->
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="Lib.Harmony.Ref" Version="2.4.3" PrivateAssets="all" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+</Project>

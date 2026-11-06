@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<packageId>rtem.opencodego.sessionfix</packageId>
+	<name>RimTalk 记忆拓展 · OpenCode Go 会话头补丁</name>
+	<author>mmy420</author>
+	<modVersion>1.0.0</modVersion>
+	<url>https://github.com/mmy420/RimTalk-ExpandMemory-OpenCodeGoFix</url>
+	<supportedVersions>
+		<li>1.5</li>
+		<li>1.6</li>
+		<li>1.7</li>
+	</supportedVersions>
+	<description>让 RimTalk - Expand Memory（记忆拓展）能用 OpenCode Go。
+
+非官方补丁，与 RimTalk / 记忆拓展的作者无关。问题反馈：https://github.com/mmy420/RimTalk-ExpandMemory-OpenCodeGoFix/issues
+
+OpenCode Go 网关自 2026-09 起拒绝不带 x-opencode-session 请求头的请求（HTTP 400 MissingSessionID）。RimTalk 本体 1.4.2 起已自带该请求头，但记忆拓展还没有，因此记忆总结等 AI 请求全部失败。
+
+本补丁不改动记忆拓展的任何文件，只在运行时做两件事：
+1. 记忆拓展发往 opencode.ai 的请求如果没带 x-opencode-session，就补上（值与 RimTalk 本体发送的相同）。
+2. 勾选「跟随 RimTalk 配置」时，把 RimTalk 里选的「OpenCode GO」映射到 RimTalk 实际使用的端点（原本会被当成无地址的 Custom 而失效）。
+
+记忆拓展日后原生支持后，本补丁会自动不再生效，可直接移除。
+
+加载顺序：Harmony → RimTalk → RimTalk - Expand Memory → 本补丁。</description>
+	<modDependencies>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+		</li>
+		<li>
+			<packageId>cj.rimtalk.expandmemory</packageId>
+			<displayName>RimTalk - Expand Memory</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3608181242</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>brrainz.harmony</li>
+		<li>cj.rimtalk</li>
+		<li>cj.rimtalk.expandmemory</li>
+	</loadAfter>
+</ModMetaData>
